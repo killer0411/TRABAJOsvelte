@@ -1,4 +1,4 @@
 <script>
-    import Histrorial from "../Histrorial.svelte";
+    import Histrorial from "../Componentes/Histrorial.svelte";
 </script>
 <Histrorial/>

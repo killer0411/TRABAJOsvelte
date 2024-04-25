@@ -1,7 +1,7 @@
 <script>
-   import MenuH from "../MenuH.svelte";
-   import Formulario from "../Formulario.svelte";
-   import Header from "../Header.svelte";
+   import MenuH from "../Componentes/MenuH.svelte";
+   import Formulario from "../Componentes/Formulario.svelte";
+   import Header from "../Componentes/Header.svelte";
     
 </script>
 <Header title="CARGA DE ARCHIVOS "/>

@@ -1,6 +1,6 @@
 <script>
-    import Header from "../Header.svelte";
-    import Registro from "../Registro.svelte";
+    import Header from "../Componentes/Header.svelte";
+    import Registro from "../Componentes/Registro.svelte";
 </script>
 
 <Header title="REGISTRO DE USUARIOS"/>
