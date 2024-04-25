@@ -1,15 +1,4 @@
-<script>
-// @ts-nocheck
-    import Header from "./Header.svelte";
-    import Footer from "./Footer.svelte";
-    import Login from "./Login.svelte";
-</script>
-<Header title="DOCUMENTOS PROTECHS "/>
-<main>
-<Login/>
-</main>
 
-<Footer/>
-
+<h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat molestias deserunt unde iure id rerum laboriosam dolorem ut facere nemo laborum, obcaecati perspiciatis incidunt nam inventore earum tenetur consectetur vero.</h1>
 
 

@@ -1,8 +1,7 @@
 import { AssemblyAI } from 'assemblyai';
-import audiencia1 from '$lib/static/audiencia1.mp3';
 
 export async function load() {
-    const client = new AssemblyAI({
+/*     const client = new AssemblyAI({
         apiKey: '37c50e684c234b3fad425c52f58e58e8'
     });
 
@@ -17,7 +16,7 @@ export async function load() {
     } catch (error) {
         console.error('Error al transcribir el audio:', error);
     }
-
+ */
     
     return {
         data: "camilo"

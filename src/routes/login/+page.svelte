@@ -39,9 +39,9 @@
 
         const formData = new FormData();
         formData.append("user", user);
-        console.log(user)
+        console.log(user);
         formData.append("password", password);
-        console.log(password)
+        console.log(password);
         try {
             const response = await fetch("http://192.168.1.27:8000/login//", {
                 method: "POST",
@@ -70,7 +70,7 @@
     };
 </script>
 
-<h1>REALIZAR LOGIN</h1>
+<h1>Ingreso</h1>
 <form class="login" on:submit={oprimirBoton}>
     <div class="container">
         <div class="botones">
@@ -79,24 +79,16 @@
         </div>
 
         <div class="botones">
-            <label for="password">Contraseña:</label>
-            <div class="password-container">
-                <input
-                    type={mostrarPassword ? "text" : "password"}
-                    id="password"
-                />
-                <button on:click={vercontraseña}>
-                    {mostrarPassword ? "👁️" : "👁️‍🗨️"}
-                </button>
-            </div>
+            <label for="password">Contraseña:</label><br />
+            <input type={mostrarPassword ? "text" : "password"} id="password" />
+            <button on:click={vercontraseña}>
+                {mostrarPassword ? "👁️" : "👁️‍🗨️"}
+            </button>
         </div>
 
         <div class="btn-env">
-            <button class="botonera" type="submit">Iniciar Sesión</button>
-
             <a href="/registro">
-                <button class="botonera" type="submit">Realizar Registro</button
-                >
+                <button class="botonera" type="submit">Iniciar Sesión</button>
             </a>
         </div>
     </div>
@@ -105,54 +97,54 @@
 <style>
     .login {
         display: flex;
-        justify-content: center;
         align-items: center;
         flex-direction: column;
-        text-align: center;
         margin: 20px;
     }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        border: none;
+        background-color: #f4f4f4;
+    }
+
     h1 {
+        margin-top: 100px;
         text-align: center;
-        font-family: "Courier New", Courier, monospace;
     }
     .botones {
-        padding: 20px 20px;
+        padding: 10px 20px;
         align-items: center;
         text-align: center;
-        margin: 25px;
+        margin: 10px;
         flex-direction: column;
         display: flex;
     }
     .container {
-        border: 2px solid black;
-        border-radius: 5px;
+        border: 1px solid rgb(203, 203, 203);
+        border-radius: 1px;
         width: 40rem;
-        background-color: #c6f3ce;
     }
     input {
         border-radius: 10px;
         height: auto;
     }
 
-    .password-container button {
-        width: 30rem;
-        border: none;
-    }
-    button {
-        background-color: #c6f3ce;
-    }
     .btn-env {
-        background-color: #c6f3ce;
-        color: black;
-        width: auto;
+        display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
-        padding: 10px 10px;
+        padding: 10px;
     }
     .botonera {
-        background-color: white;
         border-radius: 10px;
-        padding: 7px 7px;
+        padding: 7px 20px;
+        margin-right: 10px;
+        border: none;
     }
 </style>
