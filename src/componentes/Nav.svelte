@@ -25,4 +25,5 @@
     <a href="/transcription">Transcripción</a>
     <a href="/registro">Crear Usuarios</a>
     <a href="/login">Salir</a>
+    <a href="/login">LOGIN</a>
 </nav>
