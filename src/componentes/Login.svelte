@@ -67,11 +67,9 @@
   const vercontraseña = () => {
     mostrarPassword = !mostrarPassword;
   };
-  
 </script>
 
-
-<h1>Ingreso</h1>
+<h1>Ingresar</h1>
 <form class="login" on:submit={oprimirBoton}>
   <div class="container">
     <div class="botones">
@@ -108,7 +106,7 @@
     margin-bottom: 10px;
     border-radius: 10px;
     border: none;
-    background-color: #f4f4f4;
+    background-color: #d4fac3;
   }
 
   h1 {

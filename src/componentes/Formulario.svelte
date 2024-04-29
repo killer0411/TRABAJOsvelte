@@ -1,6 +1,6 @@
 <script>
   // @ts-nocheck
-  
+
   let nombre = "";
   let email = "";
   let seleccionarDocumento = [];
@@ -30,8 +30,6 @@
     }
   };
 </script>
-
-
 
 <form on:submit|preventDefault={submitForm} enctype="multipart/form-data">
   <div>

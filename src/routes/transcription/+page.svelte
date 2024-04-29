@@ -1,16 +1,7 @@
-
 <script>
-    //import Transcripciones from "../Transcripciones.svelte";
-  
+    import Transcripciones from "../../componentes/Transcripciones.svelte";
 </script>
-
-
-
-   
-
-
-
-  
+<Transcripciones/>
   
 
   
