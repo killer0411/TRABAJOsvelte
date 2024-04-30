@@ -5,11 +5,13 @@
 
     let username = '';
     let password = '';
+    let manejo= '';
+
 
     async function handleLogin() {
        
         try {
-            const response = await fetch('http://192.168.1.27:8000/login//', {
+            const response = await fetch('http://localhost:8000/login/', {
                 method: 'POST',
                 body: JSON.stringify({ username, password }),
                 headers: {
@@ -22,7 +24,7 @@
             if (response.ok) {
                 const data = await response.json();
                 
-                setCookie('userToken', data.token);
+                setCookie('userToken', "data.token");
                
                 window.location.href = '/cargaaud';
             } else {
@@ -30,8 +32,12 @@
             }
         } catch (error) {
             console.error('Error de red:', error);
-        }
-    }
+        }   
+
+    };
+
+    
+
 </script>
 
 <h1>Iniciar sesión</h1>

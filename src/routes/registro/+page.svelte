@@ -1,4 +1,5 @@
 <script>
+ 
   /**
    
    * @param {string} value
@@ -37,7 +38,7 @@
 
     try {
        
-        const response = await fetch("http://192.168.1.27:8000/login/", {
+        const response = await fetch("localhost:8000/login/", {
             method: "POST",
             body: formData,
         });
@@ -63,25 +64,30 @@
 };
 </script>
 
+
+<h1 class="text-5xl font-bold">Registro</h1>
+
 <form class="login" on:submit={ButtonRegistro}>
   <div class="container">
     <div class="botones">
       <h4><label for="usuario">Usuario:</label></h4>
-      <input type="text" id="usuario" required />
+      <input type="text" placeholder="Usuario" class="input input-bordered input-success w-full max-w-xs" />
+
     </div>
     <div class="botones-1">
-      <h4><label for="cargo">Cargo:</label></h4>
-      <select id="cargo" required>
-        <option value="Selecciona un cargo">Selecciona un cargo</option>
-        <option value="administrador">Administrador</option>
-        <option value="usuario">Usuario</option>
+     
+      <select class="select select-success w-full max-w-xs">
+        <option disabled selected>Cargo</option>
+        <option>Administrador</option>
+        <option>Usuario</option>
+        
       </select>
     </div>
 
     <div class="botones">
-      <h4><label for="password">Contraseña:</label></h4>
+      <h4><label for="password" class="bg-base-200">Contraseña:</label></h4>
       <div class="password-container">
-        <input type={mostrarPassword ? "text" : "password"} id="password" />
+        <input type={mostrarPassword ? "text" : "password"} class="input input-bordered input-success w-full max-w-xs" />
         <button on:click={vercontraseña}>
           {mostrarPassword ? "👁️" : "👁️‍🗨️"}
         </button>
@@ -89,16 +95,26 @@
     </div>
 
     <div class="registro">
-      <button class="btn-env" type="submit">Hacer registro</button>
+      <button class="btn btn-outline btn-success">Registro</button>
     </div>
   </div>
 </form>
 
+
+
+
 <style>
+
+h1{
+    text-align: center;
+   
+}
+  input{
+    padding: 7px;
+    margin-top: 10px;
+  }
   label {
-    background-color: white;
-    color: black;
-    border-radius: 25px;
+    color: rgb(7, 7, 7);
     width: 30px;
   }
   .login {
@@ -118,14 +134,12 @@
     flex-direction: column;
     display: flex;
   }
-  .botones-1 {
-    border-radius: 50px;
-  }
+  
   .container {
     border: 2px solid black;
     border-radius: 5px;
     width: 40rem;
-    background-color: #c6f3ce;
+    background-color: #f4f8f1;
   }
   input {
     border-radius: 10px;
@@ -135,15 +149,10 @@
   .password-container button {
     width: 30rem;
     border: none;
+    border-radius: 1px black;
   }
-  button {
-    background-color: #c6f3ce;
-  }
-  .btn-env {
-    background-color: black;
-    color: white;
-    width: 100px;
-  }
+ 
+  
   .registro {
     padding: 20px 20px;
   }

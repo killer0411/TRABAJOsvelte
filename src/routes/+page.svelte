@@ -1,10 +1,8 @@
 <script>
-    import Nav from "../componentes/Nav.svelte";
+   
 </script>
 
-<header>
-    <Nav/>
-</header>
+
 
 <div class="container"> 
     <div class="algo"> 

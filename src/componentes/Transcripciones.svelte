@@ -1,24 +1,47 @@
 <script>
-  import { onMount } from 'svelte';
-  
+  // @ts-nocheck
+
+  import { AssemblyAI } from 'assemblyai';
+
   let transcript = '';
-  
-  onMount(async () => {
-    const response = await fetch('http://localhost:8000/transcribe/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ audio_url: 'https://github.com/AssemblyAI-Examples/audio-examples/raw/main/20230607_me_canadian_wildfires.mp3' }) // Reemplaza 'url_del_audio' con la URL de tu audio
+  let utterances = [];
+
+  const transcribeAudio = async (file) => {
+    const client = new AssemblyAI({
+      apiKey: '37c50e684c234b3fad425c52f58e58e8'
     });
-    
-    const data = await response.json();
-    if (data.transcript) {
-      transcript = data.transcript;
-    } else {
-      console.error(data.error);
+
+    const params = {
+      audio: file,
+      speaker_labels: true,
+      language_code:"es"
+
+
+    };
+
+    try {
+      const response = await client.transcripts.transcribe(params);
+      transcript = response.text;
+      utterances = response.utterances;
+    } catch (error) {
+      console.error('Error transcribing audio:', error);
     }
-  });
+  };
 </script>
 
-<p>{transcript}</p>
+<input type="file" accept="audio/*" multiple on:change={(event) => {
+  const file = event.target.files[0];
+  if (file) {
+    transcribeAudio(file);
+  }
+}}>
+
+<p>
+  {transcript}
+</p>
+
+{#each utterances as utterance}
+  <p>
+    Speaker <span style="font-size: 20px;"> {utterance.speaker}</span>: {utterance.text}
+  </p>
+{/each}

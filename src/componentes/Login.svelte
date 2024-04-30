@@ -1,4 +1,7 @@
 <script>
+  import Nav from "./Nav.svelte";
+  import { setCookie } from 'cookies-next';
+
   /**
    * @param {string} name
    * @param {string} value
@@ -41,8 +44,10 @@
     console.log(user);
     formData.append("password", password);
     console.log(password);
+    setCookie('user', "camilo");
+
     try {
-      const response = await fetch("http://192.168.1.27:8000/login/", {
+      const response = await fetch("http://localhost:8000/login/", {
         method: "POST",
         body: formData,
       });
@@ -68,25 +73,27 @@
     mostrarPassword = !mostrarPassword;
   };
 </script>
+<Nav/>
 
-<h1>Ingresar</h1>
+<h1 class="text-5xl font-bold">Iniciar sesión</h1>
 <form class="login" on:submit={oprimirBoton}>
   <div class="container">
     <div class="botones">
       <label for="user">Usuario:</label><br />
-      <input type="text" id="user" required />
+      <input type="text" id="user" required  class="input input-bordered w-full max-w-xs"/>
     </div>
 
     <div class="botones">
       <label for="password">Contraseña:</label><br />
-      <input type={mostrarPassword ? "text" : "password"} id="password" />
+      <input type={mostrarPassword ? "text" : "password"} id="password" class="input input-bordered w-full max-w-xs" />
       <button type="button" on:click={vercontraseña}>
         {mostrarPassword ? "👁️" : "👁️‍🗨️"}
       </button>
     </div>
 
     <div class="btn-env">
-      <button class="botonera" type="submit">Iniciar Sesión</button>
+      <button class="btn btn-success btn btn-outline btn-success" type="submit">Iniciar Sesión</button>
+      <a href="/registro"><button class="btn btn-success btn btn-outline btn-success">Registrase</button></a>
     </div>
   </div>
 </form>
@@ -122,8 +129,9 @@
     display: flex;
   }
   .container {
-    border: 1px solid rgb(203, 203, 203);
-    border-radius: 1px;
+    background-color: #f4f8f1;
+    border: 2px solid black;
+    border-radius: 5px;
     width: 40rem;
   }
   input {
@@ -138,10 +146,5 @@
     text-align: center;
     padding: 10px;
   }
-  .botonera {
-    border-radius: 10px;
-    padding: 7px 20px;
-    margin-right: 10px;
-    border: none;
-  }
+  
 </style>

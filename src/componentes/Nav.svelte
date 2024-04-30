@@ -1,5 +1,5 @@
 <script>
-
+ 
 </script>
 
 <nav>
@@ -29,3 +29,5 @@
     <a href="/registro">Crear Usuarios</a>
     <a href="/close">Cerrar sesión</a>
 </nav>
+
+

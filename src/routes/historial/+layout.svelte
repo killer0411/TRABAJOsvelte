@@ -1,16 +1,18 @@
 <script>
-    // @ts-nocheck
-        import Nav from "../../componentes/Nav.svelte";
-    import "../../estilos/global.css"
-    import Loginprueba from "../../componentes/algo/loginprueba.svelte";
-
-    </script>
+  // @ts-nocheck
+  import Nav from "../../componentes/Nav.svelte";
+  import "../../estilos/global.css";
+  import Loginprueba from "../../componentes/algo/loginprueba.svelte";
+  import Historial from "../../componentes/Historial.svelte";
+</script>
 
 <Nav />
-<Loginprueba/>
+<Loginprueba />
+
 <main>
-    <slot></slot> 
+  <slot></slot>
 </main>
 
+<br/>
 
-
+<Historial />
