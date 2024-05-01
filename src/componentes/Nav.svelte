@@ -2,32 +2,15 @@
  
 </script>
 
-<nav>
-    <style>
-        nav {
-            background-color: #8c5;
-            padding: 1em;
-            text-align: right;
-        }
-        a {
-            text-decoration: none;
-            color: #333;
-            margin-left: 10px;
-            transition: color 0.3s, transform 0.3s; 
-        }
-        a:hover {
-            text-decoration: underline;
-            color: white; 
-            transform: scale(1.1); 
-        }
-    </style>
-
-    <!-- Enlaces de navegación -->
-    <a href="/cargaud">Cargar audio</a>
-    <a href="/historial/">Historial</a>
-    <a href="/transcription">Transcripción</a>
-    <a href="/registro">Crear Usuarios</a>
-    <a href="/close">Cerrar sesión</a>
+<nav class="bg-gradient-to-br from-green-200 to-green-400 px-4 py-2 rounded-lg shadow-lg flex justify-between items-center">
+    <div>
+        <img src="./src/static/descarga.png" alt="/" class="h-8 w-auto">
+    </div>
+    <div class="flex justify-end space-x-4">
+        <a href="/cargaud" class="text-white font-bold hover:text-yellow-400 hover:text-lg transition-all duration-300">Cargar audio</a>
+        <a href="/historial/" class="text-white font-bold hover:text-yellow-400 hover:text-lg transition-all duration-300">Historial</a>
+        <a href="/transcription" class="text-white font-bold hover:text-yellow-400 hover:text-lg transition-all duration-300">Transcripción</a>
+        
+        <a href="/" class="bg-red-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-red-700 hover:text-yellow-400 hover:text-lg transition-all duration-300">Cerrar sesión</a>
+    </div>
 </nav>
-
-

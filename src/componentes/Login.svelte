@@ -80,12 +80,12 @@
   <div class="container">
     <div class="botones">
       <label for="user">Usuario:</label><br />
-      <input type="text" id="user" required  class="input input-bordered w-full max-w-xs"/>
+      <input type="text" id="user" required  class="input input-bordered input-success w-full max-w-xs"/>
     </div>
 
     <div class="botones">
       <label for="password">Contraseña:</label><br />
-      <input type={mostrarPassword ? "text" : "password"} id="password" class="input input-bordered w-full max-w-xs" />
+      <input type={mostrarPassword ? "text" : "password"} id="password" class="input input-bordered input-success w-full max-w-xs"/>
       <button type="button" on:click={vercontraseña}>
         {mostrarPassword ? "👁️" : "👁️‍🗨️"}
       </button>
@@ -112,12 +112,12 @@
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
-    border: none;
-    background-color: #d4fac3;
+    
+   
   }
 
   h1 {
-    margin-top: 100px;
+    margin-top: 30px;
     text-align: center;
   }
   .botones {
@@ -144,7 +144,8 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 10px;
+    margin: 15px 15px;
+  
   }
   
 </style>

@@ -4,6 +4,7 @@
   import "../../estilos/global.css";
   import Loginprueba from "../../componentes/algo/loginprueba.svelte";
   import Historial from "../../componentes/Historial.svelte";
+  import Footer from "../../componentes/Footer.svelte";
 </script>
 
 <Nav />
@@ -16,3 +17,6 @@
 <br/>
 
 <Historial />
+
+
+<Footer/>
