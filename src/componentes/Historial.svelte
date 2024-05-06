@@ -28,7 +28,7 @@
         <th scope="row">3</th>
         <td>Larry</td>
         <td>the Bird</td>
-        <td>@twitter</td>
+        <td><a href="/transcription">@twitter</a></td>
       </tr>
     </tbody>
   </Table>

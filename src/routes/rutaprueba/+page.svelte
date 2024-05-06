@@ -1,6 +1,7 @@
 <script>
-    import Prueba from "../../componentes/Prueba.svelte";
+  import Loginprueba from "../../componentes/algo/loginprueba.svelte";
+
+   
     
 </script>
-
-<Prueba/>
+<Loginprueba/>

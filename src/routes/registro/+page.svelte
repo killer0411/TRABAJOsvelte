@@ -1,5 +1,6 @@
 <script>
- 
+
+
   /**
    
    * @param {string} value
@@ -7,12 +8,6 @@
    * @param {string} cargo
    * @param {number} hours
    */
-  function cookiesRegister(hours, value, name, cargo) {
-    const date = new Date();
-    date.setTime(date.getTime() + hours * 60 * 60 * 1000);
-    const expires = "expires=" + date.toUTCString();
-    document.cookie = name + "=" + value + cargo + ";" + expires + ";path=/";
-  }
 
   let mostrarPassword = false;
 
@@ -22,7 +17,6 @@
 
   // @ts-ignore
   const ButtonRegistro = async () => {
-    // Obtener los valores de los campos del formulario
     // @ts-ignore
     const user = document.getElementById("usuario").value;
     // @ts-ignore
@@ -30,40 +24,39 @@
     // @ts-ignore
     const password = document.getElementById("password").value;
 
-    // Crear un objeto FormData para enviar los datos
-    const formData = new FormData();
-    formData.append("user", user);
-    formData.append("cargo", cargo);
-    formData.append("password", password);
-
+    let data = {
+      email: user,
+      password: password,
+      is_active: true,
+      is_superuser: false,
+      is_verified: false,
+    };
+   
     try {
-       
-        const response = await fetch("localhost:8000/login/", {
-            method: "POST",
-            body: formData,
-        });
+      const response = await fetch("http://localhost:8000/auth/register", {
+        method: "POST",
+        headers: {
+      "Content-Type": "application/json",
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+        // @ts-ignore
+        body: JSON.stringify(data),
+      });
 
+      const result = await response.json();
+      console.log(result);
+
+      if (result) {
         
-        const result = await response.json();
-        console.log(result);
-
-        // Verificar si el inicio de sesión fue exitoso
-        if (result.success) {
-            // Si es exitoso, configurar la cookie y redireccionar al usuario
-            cookiesRegister(1, user, cargo, "username" + "usercargo");
-            window.location.href = "/";
-        } else {
-         
-            alert("Algo salió mal");
-        }
+        //window.location.href = "/login";
+      } else {
+        alert("Algo salió mal");
+      }
     } catch (error) {
-     
-        console.log("asd");
-        alert("Ocurrió un error al intentar iniciar sesión");
+      alert("Ocurrió un error al intentar iniciar sesión");
     }
-};
+  };
 </script>
-
 
 <h1 class="text-5xl font-bold">Registro</h1>
 
@@ -71,23 +64,29 @@
   <div class="container">
     <div class="botones">
       <h4><label for="usuario">Usuario:</label></h4>
-      <input type="text" placeholder="Usuario" class="input input-bordered input-success w-full max-w-xs" />
-
+      <input
+        type="text"
+        placeholder="Usuario"
+        class="input input-bordered input-success w-full max-w-xs"
+        id="usuario"
+      />
     </div>
     <div class="botones-1">
-     
-      <select class="select select-success w-full max-w-xs">
+      <select class="select select-success w-full max-w-xs" id="cargo">
         <option disabled selected>Cargo</option>
         <option>Administrador</option>
         <option>Usuario</option>
-        
       </select>
     </div>
 
     <div class="botones">
       <h4><label for="password" class="bg-base-200">Contraseña:</label></h4>
       <div class="password-container">
-        <input type={mostrarPassword ? "text" : "password"} class="input input-bordered input-success w-full max-w-xs" />
+        <input
+          type={mostrarPassword ? "text" : "password"}
+          class="input input-bordered input-success w-full max-w-xs"
+          id="password"
+        />
         <button on:click={vercontraseña}>
           {mostrarPassword ? "👁️" : "👁️‍🗨️"}
         </button>
@@ -100,16 +99,11 @@
   </div>
 </form>
 
-
-
-
 <style>
-
-h1{
+  h1 {
     text-align: center;
-   
-}
-  input{
+  }
+  input {
     padding: 7px;
     margin-top: 10px;
   }
@@ -134,7 +128,7 @@ h1{
     flex-direction: column;
     display: flex;
   }
-  
+
   .container {
     border: 2px solid black;
     border-radius: 5px;
@@ -151,8 +145,7 @@ h1{
     border: none;
     border-radius: 1px black;
   }
- 
-  
+
   .registro {
     padding: 20px 20px;
   }

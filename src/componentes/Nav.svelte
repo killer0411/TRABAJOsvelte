@@ -1,16 +1,24 @@
 <script>
- 
+// @ts-nocheck
+
+
+async function logout() {
+     console.log("")
+    }
 </script>
 
-<nav class="bg-gradient-to-br from-green-200 to-green-400 px-4 py-2 rounded-lg shadow-lg flex justify-between items-center">
-    <div>
-        <img src="./src/static/descarga.png" alt="/" class="h-8 w-auto">
-    </div>
-    <div class="flex justify-end space-x-4">
-        <a href="/cargaud" class="text-white font-bold hover:text-yellow-400 hover:text-lg transition-all duration-300">Cargar audio</a>
-        <a href="/historial/" class="text-white font-bold hover:text-yellow-400 hover:text-lg transition-all duration-300">Historial</a>
-        <a href="/transcription" class="text-white font-bold hover:text-yellow-400 hover:text-lg transition-all duration-300">Transcripción</a>
-        
-        <a href="/" class="bg-red-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-red-700 hover:text-yellow-400 hover:text-lg transition-all duration-300">Cerrar sesión</a>
+<nav class="bg-white flex justify-between items-center p-4">
+    <a href="/cargaud">
+        <img src="./src/static/logo.png" alt="/" class="w-64 h-20">
+    </a>
+    <div class="flex items-center space-x-4">
+        <a href="/cargaud" class="font-normal text-base leading-10 p-2">Cargar audio</a>
+        <a href="/historial/" class="font-normal text-base leading-10 p-2">Historial</a>
+        <a href="/transcription" class="font-normal text-base leading-10 p-2">Transcripción</a>
+        <a href="/login">
+            <button class="w-40 h-12 rounded-lg border border-green-500 text-green-500">Login</button>
+        </a>
+        <!--   <a href="/" on:click={logout} class="bg-red-600 text-white  py-2 rounded-lg font-bold hover:bg-red-700 hover:text-lg transition-all duration-300 p-2">Cerrar sesión</a>-->
     </div>
 </nav>
+

@@ -1,11 +1,10 @@
 <script>
-        import Nav from "../../componentes/Nav.svelte";
-    </script>
+  import { getContext } from "svelte";
+  import Nav from "../../componentes/Nav.svelte";
+    import Transcripciones from "../../componentes/Transcripciones.svelte";
+  
+</script>
 
-<Nav />
-<main>
-    <slot></slot> 
-</main>
-
-
-
+  <Nav></Nav>
+  <Transcripciones></Transcripciones>   
+<slot />
