@@ -1,8 +1,11 @@
-/** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
-    extend: {}
+    extend: {
+      fontSize: {
+        '206px': '206px',
+      },
+    },
   },
-  plugins: [require('daisyui'),]
+  plugins: [require('daisyui')],
 };

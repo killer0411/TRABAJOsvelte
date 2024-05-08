@@ -1,6 +1,6 @@
 <script>
   import Nav from "./Nav.svelte";
-  
+
   const oprimirBoton = async () => {
     // @ts-ignore
     const user = document.getElementById("user").value;
@@ -15,14 +15,12 @@
       const response = await fetch("http://localhost:8000/auth/jwt/login", {
         method: "POST",
         body: formData,
-        credentials: "include"
-        
+        credentials: "include",
       });
       const result = response;
       console.log(result);
 
       if (result["ok"]) {
-       
         window.location.href = "/cargaud";
       } else {
         alert("Usuario o contraseña incorrectos");
@@ -39,79 +37,75 @@
     mostrarPassword = !mostrarPassword;
   };
 </script>
-<Nav/>
 
-<h1 class="text-5xl font-bold">Iniciar sesión</h1>
+<Nav />
+
+<h1 class="texto">Iniciar sesión</h1>
 <form class="login" on:submit={oprimirBoton}>
-  <div class="container">
-    <div class="botones">
-      <label for="user">Usuario:</label><br />
-      <input type="text" id="user" required  class="input input-bordered input-success w-full max-w-xs"/>
-    </div>
+  <input type="text" id="user" required placeholder="Usuario" />
+  <input
+    type={mostrarPassword ? "text" : "password"}
+    id="password"
+    placeholder="Contraseña"
+  />
+  <button type="button" on:click={vercontraseña}>
+    {mostrarPassword ? "👁️" : "👁️‍🗨️"}
+  </button>
 
-    <div class="botones">
-      <label for="password">Contraseña:</label><br />
-      <input type={mostrarPassword ? "text" : "password"} id="password" class="input input-bordered input-success w-full max-w-xs"/>
-      <button type="button" on:click={vercontraseña}>
-        {mostrarPassword ? "👁️" : "👁️‍🗨️"}
-      </button>
-    </div>
-
-    <div class="btn-env">
-      <button class="btn btn-success btn btn-outline btn-success" type="submit">Iniciar Sesión</button>
-      <a href="/registro"><button class="btn btn-success btn btn-outline btn-success">Registrase</button></a>
-    </div>
-  </div>
+  <button class="iniciar" type="submit">INICIAR SESIÓN</button>
+  
 </form>
+<p>¿No estás registrado? <a href="/registro">Crear una cuenta</a></p>
 
 <style>
+  .texto {
+    margin-top: 30px;
+    font-family: "Work Sans";
+    font-size: 48px;
+    line-height: 62px;
+    font-weight: 900;
+    height: 56px;
+    text-align: center;
+  }
   .login {
     display: flex;
     align-items: center;
     flex-direction: column;
     margin: 20px;
   }
-
-  input[type="text"],
-  input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    
-   
-  }
-
-  h1 {
-    margin-top: 30px;
-    text-align: center;
-  }
-  .botones {
-    padding: 10px 20px;
-    align-items: center;
-    text-align: center;
-    margin: 10px;
-    flex-direction: column;
-    display: flex;
-  }
-  .container {
-    background-color: #f4f8f1;
-    border: 2px solid black;
-    border-radius: 5px;
-    width: 40rem;
-  }
   input {
-    border-radius: 10px;
-    height: auto;
+    width: 837px;
+    height: 63px;
+    border-radius: 30px;
+    border: 2px solid #dcdcdc;
+    margin-top: 20px;
+    padding-left: 10px;
+    line-height: 62px;
+    font-weight: 400;
   }
+  .iniciar {
+    background-color: #57bb3c;
+    color: white;
+    border-radius: 30px;
+    width: 837px;
+    height: 63px;
+    margin-top: 25px;
+    line-height: 62px;
+    font-weight: 400;
+  }
+  button {
+    margin: 10px;
+  }
+  p{
+    margin-top: 10px;
+    text-align: left;
+    color: black;
+    line-height: 62px;
+    font-weight: 400;
+    margin-left: 260px;
+  }
+  a{
+  color: #57bb3c;
 
-  .btn-env {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 15px 15px;
-  
   }
-  
 </style>

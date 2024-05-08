@@ -1,21 +1,16 @@
 <script>
-
-
-  /**
-   
-   * @param {string} value
-   * @param {string} name
-   * @param {string} cargo
-   * @param {number} hours
-   */
-
+   // @ts-ignore
+  import { goto } from "$app/navigation";
+  import Nav from "../../componentes/Nav.svelte";
+  
   let mostrarPassword = false;
+  let usuariologueado = false;
 
   const vercontraseña = () => {
     mostrarPassword = !mostrarPassword;
   };
 
-  // @ts-ignore
+  
   const ButtonRegistro = async () => {
     // @ts-ignore
     const user = document.getElementById("usuario").value;
@@ -31,15 +26,15 @@
       is_superuser: false,
       is_verified: false,
     };
-   
+
     try {
       const response = await fetch("http://localhost:8000/auth/register", {
         method: "POST",
         headers: {
-      "Content-Type": "application/json",
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-    },
-        // @ts-ignore
+          "Content-Type": "application/json",
+        
+        },
+       
         body: JSON.stringify(data),
       });
 
@@ -47,8 +42,7 @@
       console.log(result);
 
       if (result) {
-        
-        //window.location.href = "/login";
+        goto("/login");
       } else {
         alert("Algo salió mal");
       }
@@ -57,100 +51,107 @@
     }
   };
 </script>
+<Nav/>
+<div class="container">
+  
+</div>
 
-<h1 class="text-5xl font-bold">Registro</h1>
+<h1 class="texto">Registrarse</h1>
 
 <form class="login" on:submit={ButtonRegistro}>
-  <div class="container">
-    <div class="botones">
-      <h4><label for="usuario">Usuario:</label></h4>
-      <input
-        type="text"
-        placeholder="Usuario"
-        class="input input-bordered input-success w-full max-w-xs"
-        id="usuario"
-      />
-    </div>
-    <div class="botones-1">
-      <select class="select select-success w-full max-w-xs" id="cargo">
-        <option disabled selected>Cargo</option>
-        <option>Administrador</option>
-        <option>Usuario</option>
-      </select>
-    </div>
+  <input type="text" placeholder="Usuario" id="usuario" />
 
-    <div class="botones">
-      <h4><label for="password" class="bg-base-200">Contraseña:</label></h4>
-      <div class="password-container">
-        <input
-          type={mostrarPassword ? "text" : "password"}
-          class="input input-bordered input-success w-full max-w-xs"
-          id="password"
-        />
-        <button on:click={vercontraseña}>
-          {mostrarPassword ? "👁️" : "👁️‍🗨️"}
-        </button>
-      </div>
-    </div>
+  <div class="botones-1">
+    <select id="cargo" class="select-style">
+      <option disabled selected>Cargo</option>
+      <option>Administrador</option>
+      <option>Usuario</option>
+    </select>
+  </div>
+  <input
+    type={mostrarPassword ? "text" : "password"}
+    id="password"
+    placeholder="Contraseña"
+  /><br />
+  <button on:click={vercontraseña}>
+    {mostrarPassword ? "👁️" : "👁️‍🗨️"}
+  </button>
 
-    <div class="registro">
-      <button class="btn btn-outline btn-success">Registro</button>
-    </div>
+  <div class="registro">
+    <button class="iniciar">REGISTRO</button>
   </div>
 </form>
+<p>Ya estoy registrado. <a href="/login">Iniciar sesión</a></p>
 
 <style>
-  h1 {
+  .texto {
+    margin-top: 30px;
+    font-family: "Work Sans";
+    font-size: 48px;
+    line-height: 62px;
+    font-weight: 900;
+    height: 50px;
     text-align: center;
   }
   input {
-    padding: 7px;
-    margin-top: 10px;
+    width: 837px;
+    height: 63px;
+    border-radius: 30px;
+    border: 2px solid #dcdcdc;
+    margin-top: 20px;
+    padding-left: 10px;
+    line-height: 62px;
+    font-weight: 400;
   }
-  label {
-    color: rgb(7, 7, 7);
-    width: 30px;
-  }
-  .login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    margin: 10px;
+  .select-style {
+    width: 837px;
+    height: 63px;
+    border-radius: 30px;
+    border: 2px solid #dcdcdc;
+    margin-top: 20px;
+    padding-left: 10px;
+    line-height: 62px;
+    font-weight: 400;
+    margin-right: 8px;
   }
 
-  .botones {
-    padding: 7px 10px;
+  .login {
     align-items: center;
     text-align: center;
-    margin: 25px;
-    flex-direction: column;
-    display: flex;
   }
 
   .container {
-    border: 2px solid black;
-    border-radius: 5px;
-    width: 40rem;
-    background-color: #f4f8f1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
-  input {
-    border-radius: 10px;
-    height: auto;
+  .logo {
+    margin-top: 39px;
+    margin-left: 79px;
+    width: 250px;
+    height: 77px;
   }
-
-  .password-container button {
-    width: 30rem;
-    border: none;
-    border-radius: 1px black;
+  button {
+    margin-top: 10px;
   }
-
-  .registro {
-    padding: 20px 20px;
+  .iniciar {
+    background-color: #57bb3c;
+    color: white;
+    border-radius: 30px;
+    width: 837px;
+    height: 63px;
+    margin-top: 25px;
+    line-height: 62px;
+    font-weight: 400;
   }
-  option {
-    margin: 10px;
-    background-color: azure;
+  p {
+    margin-top: 10px;
+    text-align: left;
+    color: black;
+    line-height: 62px;
+    font-weight: 400;
+    margin-left: 260px;
+  }
+  a {
+    color: #57bb3c;
   }
 </style>

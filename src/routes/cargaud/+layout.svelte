@@ -1,17 +1,10 @@
 <script>
-    // @ts-nocheck
-        import Nav from "../../componentes/Nav.svelte";
-        import '../../estilos/global.css';
-        import Footer from "../../componentes/Footer.svelte";
+  // @ts-nocheck
+  import Nav from "../../componentes/Nav.svelte";
+  import "../../estilos/global.css";
+</script>
 
-    </script>
 <Nav />
 <main>
-    <slot></slot> 
+  <slot></slot>
 </main>
-
-
-<Footer/>
-
-
-

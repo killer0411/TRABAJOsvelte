@@ -1,15 +1,9 @@
 <script>
-    // @ts-nocheck
-        
-        import "../../estilos/global.css"
-        import Footer from "../../componentes/Footer.svelte";
-    </script>
+  // @ts-nocheck
 
+  import "../../estilos/global.css";
+</script>
 
 <main>
-    <slot></slot> 
+  <slot></slot>
 </main>
-<Footer/>
-
-
-
