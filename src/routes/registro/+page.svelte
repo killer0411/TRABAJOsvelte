@@ -113,12 +113,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
-  .logo {
-    margin-top: 39px;
-    margin-left: 79px;
-    width: 250px;
-    height: 77px;
-  }
+
   button {
     margin-top: 10px;
   }
@@ -132,15 +127,5 @@
     line-height: 62px;
     font-weight: 400;
   }
-  p {
-    margin-top: 10px;
-    text-align: left;
-    color: black;
-    line-height: 62px;
-    font-weight: 400;
-    margin-left: 260px;
-  }
-  a {
-    color: #57bb3c;
-  }
+
 </style>
